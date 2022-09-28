@@ -6,7 +6,7 @@ const dynamoDbClient = new AWS.DynamoDB.DocumentClient();
 const uuid = require("uuid");
 
 /** serverless.yml fuctionsのhandler 参照 　*/
-exports.createTodo = (event, context, callback) => {
+exports.createHandler = (event, context, callback) => {
 
     /** 
      * new Date()はあまりお勧めしません。下記のリンクを参考してください。
