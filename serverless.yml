@@ -46,6 +46,13 @@ functions:
           path: dynamo/{id} # parameter input
           method: get
           cors: true
+  delete: # API名
+    handler: handler/deleteHandler.deleteHandler
+    events:
+      - http: # httpApi (x), http (o)
+          path: dynamo/{id} # parameter input
+          method: delete
+          cors: true
 
 resources:
   Resources:
