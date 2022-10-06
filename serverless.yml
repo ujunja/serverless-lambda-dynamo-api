@@ -36,7 +36,14 @@ functions:
     handler: handler/listHandler.listHandler
     events:
       - http: # httpApi (x), http (o)
-          path: dynamo
+          path: dynamo/list
+          method: get
+          cors: true
+  get: # API名
+    handler: handler/getHandler.getHandler
+    events:
+      - http: # httpApi (x), http (o)
+          path: dynamo/{id} # parameter input
           method: get
           cors: true
 
