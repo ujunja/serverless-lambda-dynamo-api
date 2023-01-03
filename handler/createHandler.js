@@ -1,7 +1,7 @@
 const AWS = require("aws-sdk");
 
 /** serverless.yml environment 参照 */
-const LSWN_TABLE = process.env.LSWN_TABLE;
+const TABLE_NAME = process.env.TABLE_NAME;
 const dynamoDbClient = new AWS.DynamoDB.DocumentClient();
 const uuid = require("uuid");
 
@@ -17,10 +17,10 @@ exports.createHandler = (event, context, callback) => {
         console.log("validation Failed");
         return;
     }
-    /** time based uuid 生成 */
+    /** time based uuid 生成、DnyanmoDBのPartitionKey */
     const keyId = uuid.v1();
     const params = {
-        TableName: LSWN_TABLE,
+        TableName: TABLE_NAME,
         Item: {
             userId: keyId,
             todo: data.todo,

@@ -1,12 +1,12 @@
 const AWS = require("aws-sdk");
 
 /** serverless.yml environment 参照 */
-const LSWN_TABLE = process.env.LSWN_TABLE;
+const TABLE_NAME = process.env.TABLE_NAME;
 const dynamoDbClient = new AWS.DynamoDB.DocumentClient();
 
 module.exports.getHandler = (event, context, callback) => {
     const params = {
-        TableName: LSWN_TABLE,
+        TableName: TABLE_NAME,
         Key: {
             // userId : DynamoDBのpartition=key, テンプレートファイルのresources参照
             // eventpathParameters : api gatewayを通じてもらうパースパラメータ
